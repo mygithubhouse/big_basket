@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Big Basket"
+  config.site_title = "Dummy"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -214,7 +214,7 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+    config.register_javascript 'custom.js'
 
   # == CSV options
   #
@@ -332,4 +332,12 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+
+  config.register_stylesheet 'active_admin/json_editor.css'
+  config.register_javascript 'active_admin/json_editor.js'
+  config.register_javascript 'ckeditor/init.js'
+
+  def current_user_timezone_region
+    request.cookies["timezone_region"]
+  end
 end
